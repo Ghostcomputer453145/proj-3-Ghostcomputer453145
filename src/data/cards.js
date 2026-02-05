@@ -1,13 +1,43 @@
+import robertDowneyJr from "../images/robert-downey-jr.png";
+import paris from "../images/paris.png";
+import tokyo from "../images/tokyo.png";
+import washingtonDC from "../images/Washington-D-C.png";
+import rome from "../images/rome.png";
+import madrid from "../images/madrid.png";
+import ottawa from "../images/ottawa.png";
+import brasilia from "../images/brasília.png";
+import canberra from "../images/canberra.png";
+import newDelhi from "../images/new-delhi.png";
+import cairo from "../images/Cairo.png";
+import berlin from "../images/Berlin.png";
+import moscow from "../images/Moscow.png";
+import beijing from "../images/Beijing.png";
+import mexicoCity from "../images/Mexico-City.png";
+import buenosAires from "../images/buenos-aires.png";
+import oslo from "../images/Oslo.png";
+import stockholm from "../images/Stockholm.png";
+import nairobi from "../images/Nairobi.png";
+import ankara from "../images/Ankara.png";
+import athens from "../images/Athens.png";
+import hola from "../images/hola.png";
+import gracias from "../images/Gracias.png";
+import porFavor from "../images/Por-favor.png";
+import adios from "../images/Adios.png";
+import bonjour from "../images/Bonjour.png";
+import merci from "../images/Merci.png";
+import oui from "../images/Oui.png";
+import non from "../images/Non.png";
+
 const cards = {
   languageLearning: [
-    { question: "What does \"Hola\" mean in spanish?", answer: "Hello", category: "language"},
-    { question: "What does \"Gracias\" mean in spanish?", answer: "Thank you", category: "language" },
-    { question: "What does \"Por favor\" mean in spanish?", answer: "Please", category: "language" },
-    { question: "What does \"Adiós\" mean in spanish?", answer: "Goodbye", category: "language" },
-    { question: "What does \"Bonjour\" mean in french?", answer: "Hello", category: "language" },
-    { question: "What does \"Merci\" mean in french?", answer: "Thank you", category: "language" },
-    { question: "What does \"Oui\" mean in french?", answer: "Yes", category: "language" },
-    { question: "What does \"Non\" mean in french?", answer: "No", category: "language" },
+    { question: "What does \"Hola\" mean in spanish?", answer: "Hello", category: "language", image: hola },
+    { question: "What does \"Gracias\" mean in spanish?", answer: "Thank you", category: "language", image: gracias },
+    { question: "What does \"Por favor\" mean in spanish?", answer: "Please", category: "language", image: porFavor },
+    { question: "What does \"Adiós\" mean in spanish?", answer: "Goodbye", category: "language", image: adios },
+    { question: "What does \"Bonjour\" mean in french?", answer: "Hello", category: "language", image: bonjour },
+    { question: "What does \"Merci\" mean in french?", answer: "Thank you", category: "language", image: merci },
+    { question: "What does \"Oui\" mean in french?", answer: "Yes", category: "language", image: oui },
+    { question: "What does \"Non\" mean in french?", answer: "No", category: "language", image: non },
     { question: "What does \"Ciao\" mean in italian?", answer: "Hello/Goodbye", category: "language" },
     { question: "What does \"Guten Tag\" mean in german?", answer: "Good day", category: "language" },
     { question: "What does \"Arigato\" mean in japanese?", answer: "Thank you", category: "language" },
@@ -69,26 +99,26 @@ const cards = {
   ],
 
   geographyQuiz: [
-    { question: "What is the Capital of France?", answer: "Paris", category: "geo"},
-    { question: "What is the Capital of Japan?", answer: "Tokyo", category: "geo" },
-    { question: "What is the Capital of USA?", answer: "Washington D.C.", category: "geo" },
-    { question: "What is the Capital of Italy?", answer: "Rome", category: "geo" },
-    { question: "What is the Capital of Spain?", answer: "Madrid", category: "geo" },
-    { question: "What is the Capital of Canada?", answer: "Ottawa", category: "geo" },
-    { question: "What is the Capital of Brazil?", answer: "Brasília", category: "geo" },
-    { question: "What is the Capital of Australia?", answer: "Canberra", category: "geo" },
-    { question: "What is the Capital of India?", answer: "New Delhi", category: "geo" },
-    { question: "What is the Capital of Egypt?", answer: "Cairo", category: "geo" },
-    { question: "What is the Capital of Germany?", answer: "Berlin", category: "geo" },
-    { question: "What is the Capital of Russia?", answer: "Moscow", category: "geo" },
-    { question: "What is the Capital of China?", answer: "Beijing", category: "geo" },
-    { question: "What is the Capital of Mexico?", answer: "Mexico City", category: "geo" },
-    { question: "What is the Capital of Argentina?", answer: "Buenos Aires", category: "geo" },
-    { question: "What is the Capital of Norway?", answer: "Oslo", category: "geo" },
-    { question: "What is the Capital of Sweden?", answer: "Stockholm", category: "geo" },
-    { question: "What is the Capital of Kenya?", answer: "Nairobi", category: "geo" },
-    { question: "What is the Capital of Turkey?", answer: "Ankara", category: "geo" },
-    { question: "What is the Capital of Greece?", answer: "Athens", category: "geo" }
+    { question: "What is the Capital of France?", answer: "Paris", category: "geo", image: paris },
+    { question: "What is the Capital of Japan?", answer: "Tokyo", category: "geo", image: tokyo },
+    { question: "What is the Capital of USA?", answer: "Washington D.C.", category: "geo", image: washingtonDC },
+    { question: "What is the Capital of Italy?", answer: "Rome", category: "geo", image: rome },
+    { question: "What is the Capital of Spain?", answer: "Madrid", category: "geo", image: madrid },
+    { question: "What is the Capital of Canada?", answer: "Ottawa", category: "geo", image: ottawa },
+    { question: "What is the Capital of Brazil?", answer: "Brasília", category: "geo", image: brasilia },
+    { question: "What is the Capital of Australia?", answer: "Canberra", category: "geo", image: canberra },
+    { question: "What is the Capital of India?", answer: "New Delhi", category: "geo", image: newDelhi },
+    { question: "What is the Capital of Egypt?", answer: "Cairo", category: "geo", image: cairo },
+    { question: "What is the Capital of Germany?", answer: "Berlin", category: "geo", image: berlin },
+    { question: "What is the Capital of Russia?", answer: "Moscow", category: "geo", image: moscow },
+    { question: "What is the Capital of China?", answer: "Beijing", category: "geo", image: beijing },
+    { question: "What is the Capital of Mexico?", answer: "Mexico City", category: "geo", image: mexicoCity },
+    { question: "What is the Capital of Argentina?", answer: "Buenos Aires", category: "geo", image: buenosAires },
+    { question: "What is the Capital of Norway?", answer: "Oslo", category: "geo", image: oslo },
+    { question: "What is the Capital of Sweden?", answer: "Stockholm", category: "geo", image: stockholm },
+    { question: "What is the Capital of Kenya?", answer: "Nairobi", category: "geo", image: nairobi },
+    { question: "What is the Capital of Turkey?", answer: "Ankara", category: "geo", image: ankara },
+    { question: "What is the Capital of Greece?", answer: "Athens", category: "geo", image: athens }
   ],
 
   fruitOrVegetable: [
@@ -162,7 +192,7 @@ const cards = {
 
   guessTheCelebrity: [
     { question: "Who is the pop star known for 'Shake It Off'?", answer: "Taylor Swift", category: "celeb" },
-    { question: "Actor who played Iron Man?", answer: "Robert Downey Jr.", category: "celeb" },
+    { question: "Actor who played Iron Man?", answer: "Robert Downey Jr.", category: "celeb", image: robertDowneyJr },
     { question: "Who's the famous basketball player #23 Bulls?", answer: "Michael Jordan", category: "celeb" },
     { question: "Who's the singer of 'Thriller'?", answer: "Michael Jackson", category: "celeb" },
     { question: "Who played the wizard in Lord of the Rings?", answer: "Gandalf (Ian McKellen)", category: "celeb" },

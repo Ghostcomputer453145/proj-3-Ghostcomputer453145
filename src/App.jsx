@@ -90,7 +90,7 @@ function App() {
         !started ? (
           <Flashcard question="Start!" answer={`Press the 'Next Card' button to begin the ${selectedTheme ? themeNames[selectedTheme] : "all themes"} game.`} category="start" key="start" />
         ) : (
-          <Flashcard key={current} question={themeCards[current].question} answer={themeCards[current].answer} category={themeCards[current].category} />
+          <Flashcard key={current} question={themeCards[current].question} answer={themeCards[current].answer} category={themeCards[current].category} image={themeCards[current].image} />
         )
       )}
 
