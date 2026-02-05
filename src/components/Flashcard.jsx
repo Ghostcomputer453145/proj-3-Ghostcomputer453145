@@ -23,7 +23,7 @@ const Flashcard = ({ question, answer, category, image }) => {
               : {}
           }
         >
-          <div style={{ fontSize: "24px", fontWeight: "bold" }}>{answer}</div>
+          <div style={{ fontWeight: "bold" }}>{answer}</div>
           {image && (
             <img
               src={image}
