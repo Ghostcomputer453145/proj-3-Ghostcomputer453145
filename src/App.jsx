@@ -7,10 +7,19 @@ const allCards = Object.values(cards).flat();
 
 function App() {
   const [current, setCurrent] = useState(0);
+  const [history, setHistory] = useState([]);
 
   const nextCard = () => {
     const randomIndex = Math.floor(Math.random() * allCards.length);
+    setHistory([...history, current]);
     setCurrent(randomIndex);
+  };
+
+  const prevCard = () => {
+    if (history.length === 0) return;
+    const last = history[history.length - 1];
+    setHistory(history.slice(0, -1));
+    setCurrent(last);
   };
 
   return (
@@ -24,7 +33,10 @@ function App() {
         answer={allCards[current].answer}
       />
 
-      <button onClick={nextCard}>Next Card</button>
+      <div>
+        <button onClick={prevCard}>Back</button>
+        <button onClick={nextCard}>Next Card</button>
+      </div>
     </div>
   );
 }
