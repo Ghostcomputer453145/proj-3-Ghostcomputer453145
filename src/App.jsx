@@ -34,7 +34,7 @@ function App() {
       />
 
       <div>
-        <button onClick={prevCard}>Back</button>
+        <button onClick={prevCard}>Back Card</button>
         <button onClick={nextCard}>Next Card</button>
       </div>
     </div>
