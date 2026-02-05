@@ -19,13 +19,13 @@ p {
 .flashcard-container {
   perspective: 1000px;
   width: 350px;
-  height: 200px;
+  height: 250px;
   margin: 40px auto;
 }
 
 .flashcard {
   width: 350px;
-  height: 200px;
+  height: 250px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -63,7 +63,7 @@ p {
 
 .flashcard {
   width: 350px;
-  height: 200px;
+  height: 250px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -77,3 +77,18 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+.start {
+  background-color: white;
+  color: black;
+}
+
+.language { background-color: Red; }
+.fire { background-color: Orange; }
+.cs { background-color: Yellow; }
+.geo { background-color: Green; }
+.food { background-color: Blue; }
+.game { background-color: Purple; }
+.random { background-color: Silver; }
+.celeb { background-color: Gray; }
+.dog { background-color: Magenta; }
