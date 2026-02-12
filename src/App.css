@@ -1,112 +1,42 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-h1 {
-  color: black;
-  font-size: 80px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-p {
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
-  margin: 5px 0;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.flashcard-container {
-  perspective: 1000px;
-  width: 350px;
-  height: 250px;
-  margin: 40px auto;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.flashcard {
-  width: 350px;
-  height: 250px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  cursor: pointer;
+.card {
+  padding: 2em;
 }
 
-.flashcard.flipped {
-  transform: rotateX(180deg);
+.read-the-docs {
+  color: #888;
 }
-
-.flashcard-back {
-  transform: rotateX(180deg);
-}
-
-.flashcard-face {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 3px solid black;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-  backface-visibility: hidden;
-  background-color: white;
-  color: black;
-  font-size: 30px;
-  font-weight: 900;
-  text-align: center;
-}
-
-.flashcard {
-  width: 350px;
-  height: 250px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-  cursor: pointer;
-  transform-origin: center center;
-}
-
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.start {
-  background-color: white;
-  color: black;
-}
-
-button {
-  margin: 10px;
-  padding: 15px 30px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: black;
-  transform: scale(1.05);
-}
-
-.language { background-color: Red; }
-.fire { background-color: Orange; }
-.cs { background-color: Yellow; }
-.geo { background-color: Green; }
-.food { background-color: lightskyblue; }
-.game { background-color: Purple; }
-.random { background-color: Silver; }
-.celeb { background-color: Gray; }
-.dog { background-color: Magenta; }
