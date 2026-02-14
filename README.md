@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Web Development Project 3 - *Flashcards!*
 
 Submitted by: **Yumin Jang**
@@ -73,3 +74,6 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+=======
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/IZg3btZD)
+>>>>>>> 5ad50b2496add1dad24e28613aa368c9f092e5f1
