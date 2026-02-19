@@ -110,3 +110,8 @@ button:hover {
 .random { background-color: Silver; }
 .celeb { background-color: Gray; }
 .dog { background-color: Magenta; }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
