@@ -165,11 +165,11 @@ function App() {
           Next Card
         </button>
         </>
-        
+
       ) : availableCards.length === 0 ? (
         <Flashcard
           question="🎉 All Cards Mastered!"
-          answer="Great job!"
+          answer="Great job! You mastered all the cards in this theme. Pick another theme to play again."
           category="end"
           key="end"
         />
