@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Web Development Project 3 - *Ultimate Mixed Trivia Flashcards Game!*
 
 Submitted by: **Yumin Jang**
