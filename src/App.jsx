@@ -207,11 +207,7 @@ function App() {
               fontWeight: "bold",
               fontSize: "36px",
               textTransform: "uppercase",
-              color: feedback.includes("Correct") 
-              ? "green" 
-              : feedback.includes("Incorrect")
-              ? "red"
-              : "black",
+              color: feedback.includes("Correct") ? "green" : feedback.includes("Incorrect") ? "red" : "black",
             }}
           >
           {feedback}
