@@ -79,27 +79,30 @@ function App() {
     setFeedback("");
   };
 
-  const checkAnswer = () => {
-    if (!guess) return;
+  const cleanString = (str) => 
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "")
+      .trim();
 
-    const cleanGuess = guess.toLowerCase().trim();
-    const cleanAnswer =
-      availableCards[current].answer.toLowerCase();
-
-    const correct = cleanAnswer.includes(cleanGuess);
-
-    if (correct) {
-      setFeedback("✅ Correct!");
-      const newStreak = currentStreak + 1;
-      setCurrentStreak(newStreak);
-
-      if (newStreak > longestStreak)
-        setLongestStreak(newStreak);
-    } else {
-      setFeedback("❌ Incorrect");
-      setCurrentStreak(0);
-    }
-  };
+    const checkAnswer = () => {
+      if (!guess) return;
+      const cleanGuess = cleanString(guess);
+      const cleanAnswer = cleanString(availableCards[current].answer);
+      const correct = cleanAnswer.includes(cleanGuess) || cleanGuess.includes(cleanAnswer);
+      
+      if (correct) {
+        setFeedback("✅ Correct!");
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        if (newStreak > longestStreak) {
+          setLongestStreak(newStreak);
+        }
+      } else {
+        setFeedback("❌ Incorrect");
+        setCurrentStreak(0);
+      }
+    };
 
   const shuffleCards = () => {
     const shuffled = [...availableCards].sort(
@@ -114,7 +117,11 @@ function App() {
   const markMastered = () => {
     const updated = [...mastered, availableCards[current]];
     setMastered(updated);
+      if (current > 0) {
+    setCurrent(current - 1);
+  } else {
     setCurrent(0);
+  }
     resetInput();
   };
 
@@ -195,7 +202,20 @@ function App() {
             </button>
           </div>
 
-          <p>{feedback}</p>
+          <p
+            style={{
+              fontWeight: "bold",
+              fontSize: "36px",
+              textTransform: "uppercase",
+              color: feedback.includes("Correct") 
+              ? "green" 
+              : feedback.includes("Incorrect")
+              ? "red"
+              : "black",
+            }}
+          >
+          {feedback}
+          </p>
 
           <div>
             <button
@@ -228,6 +248,12 @@ function App() {
           <p>Current Streak: {currentStreak}</p>
           <p>Longest Streak: {longestStreak}</p>
           <p>Mastered Cards: {mastered.length}</p>
+          <div>
+            <h3>Mastered List:</h3>
+            {mastered.map((card, index) => (
+              <p key={index}>{card.question}</p>
+            ))}
+          </div>
         </>
       )}
     </div>

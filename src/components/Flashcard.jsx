@@ -12,16 +12,12 @@ const Flashcard = ({ question, answer, category, image }) => {
 
         <div
           className={`flashcard-face flashcard-back ${category}`}
-          style={
-            image
-              ? {
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  padding: "20px",
-                }
-              : {}
-          }
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
           <div style={{ fontWeight: "bold" }}>{answer}</div>
           {image && (
@@ -29,10 +25,10 @@ const Flashcard = ({ question, answer, category, image }) => {
               src={image}
               alt={answer}
               style={{
-                maxHeight: "150px",
+                flexGrow: 1,
+                maxHeight: "100%",
                 maxWidth: "100%",
-                marginTop: "10px",
-                alignSelf: "center",
+                objectFit: "contain",
               }}
             />
           )}
