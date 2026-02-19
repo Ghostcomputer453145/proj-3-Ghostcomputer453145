@@ -128,6 +128,8 @@ function App() {
   return (
     <div className="App">
       <h1>Ultimate Mixed Trivia Flashcards Game!</h1>
+      <p><strong>Name:</strong> Yumin Jang</p>
+      <p><strong>Z Number:</strong> Z23655899</p>
 
       <div className="theme-buttons">
         {themes.map((theme) => (
