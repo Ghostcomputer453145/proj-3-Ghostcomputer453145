@@ -1,12 +1,19 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
-  color: black;
+  color: gold;
   font-size: 80px;
   font-weight: bold;
   margin-bottom: 10px;
+  -webkit-text-stroke: 3px black;
 }
 
 p {

@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import cards from "./data/cards";
 import Flashcard from "./components/Flashcard";
 
@@ -13,9 +13,20 @@ const themeNames = {
   literallyAnything: "Random",
   guessTheCelebrity: "Celebrities",
   whatsThisDog: "Dogs",
-  all: "All Themes",
+  all: "Everything",
 };
-
+const themeBackgrounds = {
+  languageLearning: "/Language.png",
+  firefighting: "/Firefighting.png",
+  computerScienceTrivia: "/ComputerScience.png",
+  geographyQuiz: "/Geography.png",
+  fruitOrVegetable: "/FruitsAndVegetables.png",
+  headsUp: "/Games.png",
+  literallyAnything: "/Random.png",
+  guessTheCelebrity: "/Celebrities.png",
+  whatsThisDog: "/Dogs.png",
+  all: "/Everything.png",
+};
 function App() {
   const themes = Object.keys(cards);
   const [selectedTheme, setSelectedTheme] = useState(null);
@@ -42,8 +53,8 @@ function App() {
     setCurrentStreak(0);
     setLongestStreak(0);
     setMastered([]);
-    setBgImage("/Trivia.png");
     setCardOrder(getThemeCards(theme));
+    setBgImage(themeBackgrounds[theme]);
   };
   const availableCards = cardOrder.filter(
     (card) => !mastered.includes(card)
@@ -53,7 +64,9 @@ function App() {
     setFeedback("");
   };
   const nextCard = () => {
-    setBgImage("/Trivia.png");
+    if (selectedTheme) {
+      setBgImage(themeBackgrounds[selectedTheme]);
+    }
     if (!started) {
       setStarted(true);
       return;
@@ -64,7 +77,9 @@ function App() {
     }
   };
   const prevCard = () => {
-    setBgImage("/Trivia.png");
+    if (selectedTheme) {
+      setBgImage(themeBackgrounds[selectedTheme]);
+    }
     if (current > 0) {
       setCurrent(current - 1);
       resetInput();
@@ -72,16 +87,20 @@ function App() {
   };
   const cleanString = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, "").trim();
+
   const checkAnswer = () => {
     if (!guess || !availableCards.length) return;
     const cleanGuess = cleanString(guess);
-    const cleanAnswer = cleanString(availableCards[current].answer);
+    const cleanAnswer = cleanString(
+      availableCards[current].answer
+    );
     const correct =
       cleanAnswer.includes(cleanGuess) ||
       cleanGuess.includes(cleanAnswer);
     if (correct) {
       setFeedback("✅ Correct!");
       setBgImage("/Celebration.png");
+
       const newStreak = currentStreak + 1;
       setCurrentStreak(newStreak);
       if (newStreak > longestStreak) {
@@ -94,7 +113,9 @@ function App() {
     }
   };
   const shuffleCards = () => {
-    setBgImage("/Trivia.png");
+    if (selectedTheme) {
+      setBgImage(themeBackgrounds[selectedTheme]);
+    }
     const shuffled = [...availableCards].sort(
       () => Math.random() - 0.5
     );
@@ -113,19 +134,8 @@ function App() {
     resetInput();
   };
   return (
-    <div
-      className="App"
-      style={{
-        minHeight: "100vh",
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="App" style={{ backgroundImage: `url(${bgImage})` }}>
       <h1>Ultimate Mixed Trivia Flashcards Game!</h1>
-      <p><strong>Name:</strong> Yumin Jang</p>
-      <p><strong>Z Number:</strong> Z23655899</p>
       <div className="theme-buttons">
         {themes.map((theme) => (
           <button key={theme} onClick={() => pickTheme(theme)}>
@@ -136,32 +146,23 @@ function App() {
           {themeNames.all}
         </button>
       </div>
-      {selectedTheme && (
-        <>
-          <p>Theme: {themeNames[selectedTheme]}</p>
-          <p>Total Cards Remaining: {availableCards.length}</p>
-        </>
-      )}
       {!selectedTheme ? (
         <Flashcard
           question="Welcome!"
-          answer="Pick a theme to start the game."
-          category="start"
+          answer="Pick a theme to start."
         />
       ) : !started ? (
         <>
           <Flashcard
             question="Start!"
-            answer="Press 'Next Card' to begin."
-            category="start"
+            answer="Press Next Card to begin."
           />
           <button onClick={nextCard}>Next Card</button>
         </>
       ) : availableCards.length === 0 ? (
         <Flashcard
           question="🎉 All Cards Mastered!"
-          answer="Great job! Pick another theme to play again."
-          category="end"
+          answer="Great job!"
         />
       ) : (
         <>
@@ -172,50 +173,24 @@ function App() {
             category={availableCards[current].category}
             image={availableCards[current].image}
           />
-          <div>
-            <input
-              type="text"
-              placeholder="Enter your guess"
-              value={guess}
-              onChange={(e) => setGuess(e.target.value)}
-            />
-            <button onClick={checkAnswer}>Submit</button>
-          </div>
-          <p
-            style={{
-              fontWeight: "bold",
-              fontSize: "36px",
-              color:
-                feedback.includes("Correct")
-                  ? "green"
-                  : feedback.includes("Incorrect")
-                  ? "red"
-                  : "black",
-            }}
-          >
-            {feedback}
-          </p>
-          <div>
-            <button onClick={prevCard} disabled={current === 0}>
-              Back
-            </button>
-            <button
-              onClick={nextCard}
-              disabled={current === availableCards.length - 1}
-            >
-              Next
-            </button>
-          </div>
-          <div>
-            <button onClick={shuffleCards}>Shuffle</button>
-            <button onClick={markMastered}>Mark Mastered</button>
-          </div>
+          <input
+            type="text"
+            placeholder="Enter guess"
+            value={guess}
+            onChange={(e) => setGuess(e.target.value)}
+          />
+          <button onClick={checkAnswer}>Submit</button>
+          <p>{feedback}</p>
+          <button onClick={prevCard}>Back</button>
+          <button onClick={nextCard}>Next</button>
+          <button onClick={shuffleCards}>Shuffle</button>
+          <button onClick={markMastered}>Mastered</button>
           <p>Current Streak: {currentStreak}</p>
           <p>Longest Streak: {longestStreak}</p>
-          <p>Mastered Cards: {mastered.length}</p>
         </>
       )}
     </div>
   );
 }
+
 export default App;
