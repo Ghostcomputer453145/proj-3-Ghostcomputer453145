@@ -100,12 +100,9 @@ function App() {
     if (correct) {
       setFeedback("✅ Correct!");
       setBgImage("/Celebration.png");
-
       const newStreak = currentStreak + 1;
       setCurrentStreak(newStreak);
-      if (newStreak > longestStreak) {
-        setLongestStreak(newStreak);
-      }
+      if (newStreak > longestStreak) setLongestStreak(newStreak);
     } else {
       setFeedback("❌ Incorrect");
       setBgImage("/Wrong.png");
@@ -162,7 +159,7 @@ function App() {
       ) : availableCards.length === 0 ? (
         <Flashcard
           question="🎉 All Cards Mastered!"
-          answer="Great job!"
+          answer="Great job! You mastered all the cards in this theme. Pick another theme to play again."
         />
       ) : (
         <>
@@ -181,12 +178,44 @@ function App() {
           />
           <button onClick={checkAnswer}>Submit</button>
           <p>{feedback}</p>
-          <button onClick={prevCard}>Back</button>
-          <button onClick={nextCard}>Next</button>
-          <button onClick={shuffleCards}>Shuffle</button>
-          <button onClick={markMastered}>Mastered</button>
+          <div>
+            <button
+              onClick={prevCard}
+              disabled={current === 0}
+            >
+              Back Card
+            </button>
+
+            <button
+              onClick={nextCard}
+              disabled={
+                current === availableCards.length - 1
+              }
+            >
+              Next Card
+            </button>
+          </div>
+
+          <div>
+            <button onClick={shuffleCards}>
+              Shuffle
+            </button>
+
+            <button onClick={markMastered}>
+              Mark Mastered
+            </button>
+          </div>
+
           <p>Current Streak: {currentStreak}</p>
           <p>Longest Streak: {longestStreak}</p>
+          <p>Mastered Cards: {mastered.length}</p>
+
+          <div>
+            <h3>Mastered List:</h3>
+            {mastered.map((card, index) => (
+              <p key={index}>{card.question}</p>
+            ))}
+          </div>
         </>
       )}
     </div>
