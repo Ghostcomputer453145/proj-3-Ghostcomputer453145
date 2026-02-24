@@ -61,11 +61,12 @@ p {
   padding: 20px;
   box-sizing: border-box;
   backface-visibility: hidden;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3);
   color: black;
   font-size: 30px;
   font-weight: 900;
   text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 .flashcard {
@@ -121,4 +122,16 @@ button:hover {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.guess-input {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  width: 300px;
+  text-align: center;
+  box-sizing: border-box;
 }

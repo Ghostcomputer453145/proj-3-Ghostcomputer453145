@@ -129,6 +129,9 @@ function App() {
       setCurrent(0);
     }
     resetInput();
+    if (selectedTheme) {
+      setBgImage(themeBackgrounds[selectedTheme]);
+    }
   };
   return (
     <div className="App" style={{ backgroundImage: `url(${bgImage})` }}>
@@ -177,6 +180,7 @@ function App() {
             placeholder="Enter guess"
             value={guess}
             onChange={(e) => setGuess(e.target.value)}
+            className="guess-input"
           />
           <button onClick={checkAnswer}>Submit</button>
           <p>{feedback}</p>
@@ -187,7 +191,6 @@ function App() {
             >
               Back Card
             </button>
-
             <button
               onClick={nextCard}
               disabled={
@@ -197,21 +200,17 @@ function App() {
               Next Card
             </button>
           </div>
-
           <div>
             <button onClick={shuffleCards}>
               Shuffle
             </button>
-
             <button onClick={markMastered}>
               Mark Mastered
             </button>
           </div>
-
           <p>Current Streak: {currentStreak}</p>
           <p>Longest Streak: {longestStreak}</p>
           <p>Mastered Cards: {mastered.length}</p>
-
           <div>
             <h3>Mastered List:</h3>
             {mastered.map((card, index) => (
