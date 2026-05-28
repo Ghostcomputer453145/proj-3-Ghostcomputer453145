@@ -4,7 +4,7 @@ Submitted by: **Yumin Jang**
 
 This web app: **is an interactive flashcard quiz game where users can pick a theme, guess answers to trivia questions, track their streaks, and mark cards as mastered. The app provides immediate feedback on guesses and allows users to shuffle cards for variety, all while displaying a custom background image for visual appeal.**
 
-Time spent: **6-8** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
@@ -41,6 +41,8 @@ The following **additional** features are implemented:
 
 * [X] Added a new background with an image.
 * [X] Made a mastered list of cards showing the name of those specifc cards.
+* [X] Added in background images of correct and incorrect everytime the user submits a right or wrong answer.
+* [X] Added in backgeound images for each theme.
 
 ## Video Walkthrough
 
@@ -58,6 +60,8 @@ Challenges encountered:
 - Making sure the background image is visible
 - Managing state for current streak, longest streak, and mastered cards required careful updates to avoid off-by-one errors.
 - Getting the size just as I wanted it to be.
+- Getting the background image size to fit the screen.
+- Picking which images to use.
 
 ## License
 
@@ -74,6 +78,3 @@ Challenges encountered:
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/IZg3btZD)
->>>>>>> 5ad50b2496add1dad24e28613aa368c9f092e5f1
